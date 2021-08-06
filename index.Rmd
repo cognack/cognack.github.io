@@ -11,8 +11,17 @@ links:
   - label: Email
     url: "mailto:scognac@bren.ucsb.edu"
 output:
-  postcards::jolla
+  postcards::trestles
 site: distill::distill_website
 ---
- 
+
+## Bio
+
 I am a Master's of Environmental Data Science Student at UCSB living in Santa Barbara.  Interested in the confluence of botany, wetlands, data science.
+
+## Education
+
+B.S. in Environmental Science and Sustainable Food & Farming | September 2010 - May 2014
+
+## Experience
+
