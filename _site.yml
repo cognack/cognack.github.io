@@ -1,0 +1,12 @@
+name: "cognack.github.io"
+title: "My personal website"
+description: |
+  My personal website
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Squid"
+      href: index.html
+    - text: "Circle"
+      href: about.html
+output: distill::distill_article
