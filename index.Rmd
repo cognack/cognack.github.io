@@ -1,18 +1,18 @@
 ---
 title: "Steven Cognac"
-description: |
-  I'm using distill!
+image: "steven_photo.png"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/steven-cognac-24542658/"
+  - label: iNaturalist
+    url: "https://www.inaturalist.org/people/stevenc_plantid/"
+  - label: GitHub
+    url: "https://github.com/cognack/"
+  - label: Email
+    url: "mailto:scognac@bren.ucsb.edu"
+output:
+  postcards::jolla
 site: distill::distill_website
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-
-# Learn more about creating websites with Distill at:
-# https://rstudio.github.io/distill/website.html
-
-# Learn more about publishing to GitHub Pages at:
-# https://rstudio.github.io/distill/publish_website.html#github-pages
-
-```
-
+ 
+I am a Master's of Environmental Data Science Student at UCSB living in Santa Barbara.  Interested in the confluence of botany, wetlands, data science.
