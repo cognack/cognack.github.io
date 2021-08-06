@@ -5,8 +5,10 @@ description: |
 output_dir: "docs"
 navbar:
   right:
-    - text: "Squid"
+    - text: "Index"
       href: index.html
-    - text: "Circle"
+    - text: "About"
       href: about.html
+    - text: "My CV"
+      href: cv.html
 output: distill::distill_article
