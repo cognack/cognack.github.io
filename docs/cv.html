@@ -2085,10 +2085,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <div class="d-article">
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='va'>diamonds</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>carat</span>, y <span class='op'>=</span> <span class='va'>price</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>price</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="cv_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
 </div>
 <p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>cars</span><span class='op'>)</span>
+</code></pre>
+</div>
 <pre><code>     speed           dist       
  Min.   : 4.0   Min.   :  2.00  
  1st Qu.:12.0   1st Qu.: 26.00  
