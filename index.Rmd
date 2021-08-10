@@ -10,8 +10,7 @@ links:
     url: "https://github.com/cognack/"
   - label: Email
     url: "mailto:scognac@bren.ucsb.edu"
-output:
-  postcards::solana
+output: postcards::jolla
 site: distill::distill_website
 ---
 

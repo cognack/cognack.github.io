@@ -1,0 +1,8 @@
+---
+title: "blog"
+listing: posts
+  posts:
+    - 2021-08-10-a-function-i-learned
+    - 2021-08-10-mah-blog
+    - 2021-08-10-third-post
+---
