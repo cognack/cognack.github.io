@@ -1,7 +1,7 @@
 ---
 title: "Why Eat Food?"
 description: |
-  A short tall about Santa Barbara.
+  A short tail about Santa Barbara.
 author:
   - name: Steven Cognac
 date: 08-10-2021

@@ -19,7 +19,7 @@
   {
     "path": "posts/2021-08-10-mah-blog/",
     "title": "Why Eat Food?",
-    "description": "A short tall about Santa Barbara.",
+    "description": "A short tail about Santa Barbara.",
     "author": [
       {
         "name": "Steven Cognac",
@@ -28,9 +28,9 @@
     ],
     "date": "2021-08-10",
     "categories": [],
-    "contents": "\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
-    "preview": {},
-    "last_modified": "2021-08-10T17:24:48-07:00",
+    "contents": "\r\nMessings around with penguins\r\n\r\n# A tibble: 344 x 8\r\n   species island    bill_length_mm bill_depth_mm flipper_length_mm\r\n   <fct>   <fct>              <dbl>         <dbl>             <int>\r\n 1 Adelie  Torgersen           39.1          18.7               181\r\n 2 Adelie  Torgersen           39.5          17.4               186\r\n 3 Adelie  Torgersen           40.3          18                 195\r\n 4 Adelie  Torgersen           NA            NA                  NA\r\n 5 Adelie  Torgersen           36.7          19.3               193\r\n 6 Adelie  Torgersen           39.3          20.6               190\r\n 7 Adelie  Torgersen           38.9          17.8               181\r\n 8 Adelie  Torgersen           39.2          19.6               195\r\n 9 Adelie  Torgersen           34.1          18.1               193\r\n10 Adelie  Torgersen           42            20.2               190\r\n# ... with 334 more rows, and 3 more variables: body_mass_g <int>,\r\n#   sex <fct>, year <int>\r\n\r\n\r\n\r\n\r\nggplot(data = penguins, aes(x = ))\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
+    "preview": "posts/2021-08-10-mah-blog/mah-blog_files/figure-html5/unnamed-chunk-2-1.png",
+    "last_modified": "2021-08-11T13:40:24-07:00",
     "input_file": {}
   },
   {
