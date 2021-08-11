@@ -1,0 +1,35 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "About this site",
+      "description": "Some additional details about the website",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-08-11T13:35:16-07:00"
+    },
+    {
+      "path": "blog.html",
+      "title": "blog",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-08-11T13:35:17-07:00"
+    },
+    {
+      "path": "cv.html",
+      "title": "My CV",
+      "description": "Work Experience",
+      "author": [],
+      "contents": "\r\n\r\n\r\nggplot(data <- diamonds, aes(x = carat, y = price)) +\r\n  geom_point(aes(color = price))\r\n\r\n\r\n\r\n\r\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\r\n\r\n\r\nsummary(cars)\r\n\r\n\r\n     speed           dist       \r\n Min.   : 4.0   Min.   :  2.00  \r\n 1st Qu.:12.0   1st Qu.: 26.00  \r\n Median :15.0   Median : 36.00  \r\n Mean   :15.4   Mean   : 42.98  \r\n 3rd Qu.:19.0   3rd Qu.: 56.00  \r\n Max.   :25.0   Max.   :120.00  \r\n\r\nIncluding Plots\r\nYou can also embed plots, for example:\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-08-11T13:35:29-07:00"
+    },
+    {
+      "path": "index.html",
+      "title": "Steven Cognac",
+      "author": [],
+      "contents": "\r\n\r\n          \r\n          \r\n          My personal website\r\n          \r\n          \r\n          Index\r\n          About\r\n          My CV\r\n          Blog\r\n          ☰\r\n          \r\n          \r\n      \r\n        \r\n          \r\n            Steven Cognac\r\n          \r\n          \r\n            \r\n              \r\n              Bio\r\n              I am a Master’s of Environmental Data Science Student at UCSB living in Santa Barbara. Interested in the confluence of botany, wetlands, data science.\r\n              \r\n              \r\n              Education\r\n              B.S. in Environmental Science and Sustainable Food & Farming | September 2010 - May 2014\r\n              \r\n              \r\n              Experience\r\n              Biologist | WRA, Inc. Emeryville, CA | January 2019 – May 2021\r\n              Vegetation Ecology Intern | National Park Service, Point Reyes Station, CA | April 2018 – October 2018\r\n              Research Assistant | Everglades Wetland Research Park, Naples, FL | Aug – Jan 2018\r\n              Wetland Scientist/Environmental Analyst | VHB, Inc., Watertown, MA | June 2014 – June 2017\r\n              Wetland Field Technician | Midwest Biodiversity Institute, Hilliard, OH | April 2016 – September 2016\r\n              \r\n            \r\n            \r\n              \r\n              Bio\r\n              I am a Master’s of Environmental Data Science Student at UCSB living in Santa Barbara. Interested in the confluence of botany, wetlands, data science.\r\n              \r\n              \r\n              Education\r\n              B.S. in Environmental Science and Sustainable Food & Farming | September 2010 - May 2014\r\n              \r\n              \r\n              Experience\r\n              Biologist | WRA, Inc. Emeryville, CA | January 2019 – May 2021\r\n              Vegetation Ecology Intern | National Park Service, Point Reyes Station, CA | April 2018 – October 2018\r\n              Research Assistant | Everglades Wetland Research Park, Naples, FL | Aug – Jan 2018\r\n              Wetland Scientist/Environmental Analyst | VHB, Inc., Watertown, MA | June 2014 – June 2017\r\n              Wetland Field Technician | Midwest Biodiversity Institute, Hilliard, OH | April 2016 – September 2016\r\n              \r\n            \r\n          \r\n\r\n          \r\n            \r\n              \r\n                  \r\n                    \r\n                      LinkedIn\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      iNaturalist\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      GitHub\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      Email\r\n                    \r\n                  \r\n                \r\n                              \r\n          \r\n\r\n          \r\n            \r\n              \r\n                                \r\n                  \r\n                    LinkedIn\r\n                  \r\n                \r\n                                \r\n                  \r\n                    iNaturalist\r\n                  \r\n                \r\n                                \r\n                  \r\n                    GitHub\r\n                  \r\n                \r\n                                \r\n                  \r\n                    Email\r\n                  \r\n                \r\n                              \r\n            \r\n          \r\n        \r\n      \r\n    \r\n\r\n    \r\n    \r\n    ",
+      "last_modified": "2021-08-11T13:35:30-07:00"
+    }
+  ],
+  "collections": ["posts/posts.json"]
+}
