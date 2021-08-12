@@ -14,22 +14,3 @@ output: postcards::jolla
 site: distill::distill_website
 ---
 
-## Bio
-
-I am a Master's of Environmental Data Science Student at UCSB living in Santa Barbara.  Interested in the confluence of botany, wetlands, data science.
-
-## Education
-
-**B.S. in Environmental Science and Sustainable Food & Farming** | September 2010 - May 2014
-
-## Experience
-
-**Biologist** | WRA, Inc. Emeryville, CA | January 2019 – May 2021
-
-**Vegetation Ecology Intern**	| National Park Service, Point Reyes Station, CA | April 2018 – October 2018
-
-**Research Assistant** | Everglades Wetland Research Park, Naples, FL | Aug – Jan 2018
-
-**Wetland Scientist/Environmental Analyst** | VHB, Inc., Watertown, MA | June 2014 – June 2017
-
-**Wetland Field Technician** | Midwest Biodiversity Institute, Hilliard, OH | April 2016 – September 2016
