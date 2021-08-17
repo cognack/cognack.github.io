@@ -6,11 +6,42 @@ links:
     url: "https://www.linkedin.com/in/steven-cognac-24542658/"
   - label: iNaturalist
     url: "https://www.inaturalist.org/people/stevenc_plantid/"
+  - label: Calflora
+    url: "https://www.calflora.org/cgi-bin/contrib_profile.cgi?seq=113317"
   - label: GitHub
     url: "https://github.com/cognack/"
   - label: Email
     url: "mailto:scognac@bren.ucsb.edu"
-output: postcards::jolla
+
+    
+    
+output: postcards::trestles
 site: distill::distill_website
 ---
+
+## Bio
+
+Steven Cognac is a wetland scientist and plant biologist with six years of experience supporting ecological restoration, environmental permitting/planning, and implementing rare and invasive plant monitoring programs. He has experience conducting functional wetland assessments, jurisdictional delineations, protocol-level rare plant monitoring, and vegetation type mapping. As an enabler of the climate crisis at hand, Steven is working to bridge the science communication gap between industry and the public.
+
+Steven received his Bachelor’s degree in Environmental Science and Sustainable Food & Farming from the University of Massachusetts Amherst in 2014 with a focus on soil science.  He is a current graduate student in UCSB Bren School in the Masters of Environmental Data Science Program.
+
+
+
+## Education
+
+**B.S. in Environmental Science and Sustainable Food & Farming** | September 2010 - May 2014
+
+
+## Experience
+
+**Biologist** | WRA, Inc. Emeryville, CA | January 2019 – May 2021
+
+**Research Assistant** | Everglades Wetland Research Park, Naples, FL | Aug 2017 – Jan 2018
+
+**Wetland Scientist/Environmental Analyst** | VHB, Inc., Watertown, MA | June 2014 – June 2017
+
+**Wetland Field Technician** | Midwest Biodiversity Institute, Hilliard, OH | April 2016 – September 2016
+
+
+
 

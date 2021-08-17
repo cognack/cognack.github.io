@@ -1,14 +1,12 @@
 name: "cognack.github.io"
-title: "My personal website"
+title: "Steven Cognac"
 description: |
-  My personal website
+  
 output_dir: "docs"
 navbar:
   right:
     - text: "Index"
       href: index.html
-    - text: "About"
-      href: about.html
     - text: "My CV"
       href: cv.html
     - text: "Blog"
