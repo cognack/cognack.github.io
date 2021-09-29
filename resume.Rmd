@@ -63,8 +63,10 @@ Lead natural resource assessments including wetland delineations, special-status
 
 
 ### Skills and Certifications
-<font size="2"> <left> **Field Skills and Equipment Management:** Corps wetland delineation, botanical dichotomous keys, Trimble GPS (GeoExplorer), YSI ProDSS/EXO2, data loggers, pressure sensors, IRGS (LI-6400XT), soil augers <br />
-**Software:** ESRI ArcGIS, R, Python, Trimble Pathfinder, Google Earth Pro.<br />
+<font size="2"> <left> **Software:** ESRI ArcGIS, R, Python, Trimble Pathfinder, Google Earth Pro.<br />
+
+**Field Skills and Equipment Management:** Corps wetland delineation, botanical dichotomous keys, Trimble GPS (GeoExplorer), YSI ProDSS/EXO2, data loggers, pressure sensors, IRGS (LI-6400XT), soil augers <br />
+
 **Certifications:** 40-HR HAZWOPER, Basic Wetland Delineation, First Aid/CPR, SCUBA Open Water </left></font>
 
 

@@ -2,14 +2,17 @@
 title: "Kimchi Recipe"
 description: |
   Overview on a quick kimchi recipe.
-author:
+slug:
+  author:
   - name: Steven Cognac
-    url: {}
+    url: https://github.com/cognack
 date: 08-17-2021
 output:
   distill::distill_article:
     self_contained: false
 preview: kimchi_canned.jpeg
+categories:
+  - food
 ---
 
 
@@ -49,6 +52,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
  6) Seal somewhat tightly and place in dark space. Contents will off-gas and liquid will likely spill out so best to keep a plate or bowl underneath just in case.
 
+ 
+
+
+![Figure 1. pH of Kimchi Fermentation Over Time, Source: Rhee, Sook & Lee, Jang & Lee, Cherl-Ho. (2011). Importance of lactic acid bacteria in Asian fermented foods. Microbial cell factories. 10 Suppl 1. S5. 10.1186/1475-2859-10-S1-S5.](pH-kimchi-fermentation-Adapted.png)
 
 
 
