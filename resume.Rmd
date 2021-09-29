@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 <center> <font size="2"> 1620 Laguna Street, Santa Barbara, CA 93101 | <i class="fa fa-envelope"></i> scognac@bren.ucsb.edu | <i class="fa fa-phone"></i>  978-835-0699 </font> </center> <br />
 
 <justify> <font size="2">
-I am a wetland scientist and plant biologist with six years of experience supporting ecological restoration, environmental permitting/planning, and implementing rare and invasive plant monitoring programs. I have experience conducting functional wetland assessments, jurisdictional delineations, protocol-level rare plant monitoring, and vegetation type mapping. As an enabler of the climate crisis at hand, Steven is working to bridge the science communication gap between industry and the public. </font> </justify>
+I am a wetland scientist and plant biologist with six years of experience supporting ecological restoration, environmental permitting/planning, and implementing rare and invasive plant monitoring programs. I have experience conducting functional wetland assessments, jurisdictional delineations, protocol-level rare plant monitoring, and vegetation type mapping. As an enabler of the climate crisis at hand, I'm working to bridge the science communication gap between industry and the public. </font> </justify>
 
 ### Education {data-icon=graduation-cap}
 <font size="2"> <left>**University of California Santa Barbara, Bren School of Environmental Science and Management** [2021-2022]{style="float:right"}<br />
