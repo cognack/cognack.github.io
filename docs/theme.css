@@ -44,7 +44,7 @@ d-byline {
   --body-color:      rgba(0, 0, 0, 0.8);
 =======
   --body-size:       0.9rem;
-  --body-color:      rgba(255, 239, 213, 0.8);
+  --body-color:      rgba(1, 0, 0, 0.8);
 >>>>>>> dcddb711c95d67314ac7a01e561838a61196609c
 }
 
@@ -67,14 +67,14 @@ d-appendix {
 
 .distill-site-header {
   --title-size:       22px;
-  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-color:       rgba(1, 0, 0, 0.8);
   --text-size:        20px;
   --hover-color:      white;
   --bkgd-color:       #8FBC8F;
 }
 
 .distill-site-footer {
-  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-color:       rgba(1, 0, 0, 0.8);
   --text-size:        15px;
   --hover-color:      white;
   --bkgd-color:       #8FBC8F;
