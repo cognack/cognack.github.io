@@ -4,15 +4,15 @@ author: "Steven Cognac"
 date: "2021-12-02"
 description: "EDS 222: Time-series analysis of turbidity in the Cache Slough Complex of the Inland Delta in Solano County, California. Regression of turbidity on wind speed and tide data."
 output:
-  distill::distill_article:
-    self_contained: false
-    toc: true
-    toc_float: true
   pdf_document:
     latex_engine: xelatex
     fig_width: 5
     fig_height: 3
     fig_caption: yes
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_float: true
   html_document:
     toc: true
     code_folding: NULL
@@ -70,12 +70,12 @@ Some turbid water in Cache Shag Slough Complex.
 
 </figure>
 
-### Introduction
+## Introduction
 **Overview:** In the lower San Francisco Estuary there is evidence of a decadal decrease in wind speed (Bever et al, 2017) from 1995 through 2015. This decrease in wind speed has been shown to be have corresponding effects on habitat, and specifically turbidity. I'm interested in understanding to what extent turbidity varies with with speed and tidal stage in the upper San Francisco Estuary.
 
-**Background:** Turbidity is a metric of the total suspended soilds in the water column and is a measure of water clarity.  In freshwater systems, low turbidity is typically good because it indicates high water clarity and a healthy ecosystem.  On the reverse side, high turbidity is generally bad as it blocks sunlight from reaching aquatic plants and can smother aquatic organisms leading to plant die-offs.  High turbidity can also be a vector of contamination. For example, particles, pathogens, and other contaminates (lead, mercury) can adsorb to suspended solids and increase the distribution of contaminated sediments.
+**Background:** Turbidity is a metric of the total suspended solids in the water column and is a measure of water clarity.  In freshwater systems, low turbidity is typically good because it indicates high water clarity and a healthy ecosystem.  On the reverse side, high turbidity is generally bad as it blocks sunlight from reaching aquatic plants and can smother aquatic organisms leading to plant die-offs.  High turbidity can also be a vector of contamination. For example, particles, pathogens, and other contaminates (lead, mercury) can adsorb to suspended solids and increase the distribution of contaminated sediments.
 
-**Motivation:** However, not all turbid waters are equal. In estuaries, a healthy amount of turbidity is an important habitat condition. Without listing the suite of ecosystem services estuaries provide, spawning and rearing habitat for forage-fish species are major components. In the San Francisco Estuary, turbidity changes can have major management implications.  For example, the SF Estuary is home to the the endangered Delta Smelt, which is a fish species that thrivs in relatively high-turbidity water.  Another example is the management of development and restoration projects along the SF Estuary.  Understanding background conditions is important for setting water quality thresholds for work in and along the estuary.  The goal of this project is to understand if the relationship between turbidity, wind, and tidal stage hold true in the CSC Complex.
+**Motivation:** However, not all turbid waters are equal. In estuaries, a healthy amount of turbidity is an important habitat condition. Without listing the suite of ecosystem services estuaries provide, spawning and rearing habitat for forage-fish species are major components. In the San Francisco Estuary, turbidity changes can have major management implications.  For example, the SF Estuary is home to the the endangered Delta Smelt, which is a fish species that thrives in relatively high-turbidity water.  Another example is the management of development and restoration projects along the SF Estuary.  Understanding background conditions is important for setting water quality thresholds for work in and along the estuary.  The goal of this project is to understand if the relationship between turbidity, wind, and tidal stage hold true in the CSC Complex.
 
 ```{r, echo=FALSE, warning=FALSE}
 cache <- st_read(here("data", "cache.kml"), quiet = TRUE)
@@ -110,7 +110,7 @@ locations_sf <- st_as_sf(points, coords = c("lon", "lat"), crs = 4326)
 
 ```
 
-### Hypothesis
+## Hypothesis
 My null hypotheses $(H_0)$ is that, in the CSC Complex, there is no relationship between hourly or daily turbidity compared to wind speed and gage height.
 
 My alternative hypothesis $(H_a)$ is that, in the CSC Complex, there is a relationship between hourly or daily turbidity compared to wind speed and gage height.
@@ -118,19 +118,19 @@ My alternative hypothesis $(H_a)$ is that, in the CSC Complex, there is a relati
 Here is my regression equation:
 $$Turbidity_i = B_0 + B_1WindSpeed_i + B_2GageHeight + u_i$$
 
-### Data Sources and Cleaning
+## Data Sources and Cleaning
 
 The CSC includes portions of the Yolo Bypass, a network of major and minor sloughs, agricultural land, and the Sacramento River/Deepwater Channel. Five water quality stations and three wind stations were used for the analysis.  This analysis expands upon the Bever et al. analysis by looking at the 2015 - 2021 time period. All stations were chosen based on location and data availability.
 
 #### Turbidity & Gage Height Data
 Turbidity and gage height data downloaded from the United States Geological Survey (USGS) via the ["dataRetrieval"](https://cran.r-project.org/web/packages/dataRetrieval/) R library. The library pulls hydrologic data from the National Water System Information System (NWIS) via the [National Water Dashboard](https://dashboard.waterdata.usgs.gov/app/nwd/?aoi=default). Data was generally available in 15-minute time intervals. However, turbidity data is typically messy due to sensor fouling and hence contains lots of data gaps. A fair amount of tidying was required. 
 
-#### Wind Data
+### Wind Data
 
 US Local Climatological Data (LCD) downloaded from [NOAA NCEI online portal](https://www.ncdc.noaa.gov/cdo-web/datatools/lcd) map tool.  Data available as hourly summaries from airport and other prominent weather stations. Data follows ISO 19115-2  Metadata standards for describing geographic information. 
 
 
-#### Data Cleaning
+### Data Cleaning
 
 Data for the three wind stations and six water quality stations were averaged together into hourly and daily averages, respectively. Those tables were merged together.
 
@@ -219,7 +219,7 @@ compare_plot
 
 ```
 
-### Statistical Analysis Plan
+## Statistical Analysis Plan
 
 To assess whether turbidity varies with wind speed or gage height, I ran two linear regressions. One with hourly data and another with daily data. Analysis was completed in RStudio.
 
@@ -234,7 +234,7 @@ The general steps of this analysis plan include the following:
  8. Conclusions and Future Research
 
 
-### Visualize Relationships
+## Visualize Relationships
 
 ```{r Figure3, echo=FALSE, fig.align = 'left', out.width = "40%", fig.cap = "Plot of turbidity over time", results = 'markup'}
 # scatter plot with OLS regression line
@@ -322,7 +322,7 @@ explore_plots <- (hist_turbidity + hist_wind + hist_gage) /
 explore_plots
 ```
 
-### Regression Analysis & Interpretation
+## Regression Analysis & Interpretation
 
 **Hourly Data**
 
@@ -351,7 +351,7 @@ summ(model_daily, digits = 5)
 
 **P-Value**: For both the hourly and daily regressions we reject the null hypothesis that wind speed and gage height has an effect of 0 on turbidity. With hourly data, $p-value < 0.000$.  For the daily data, we get $p-value < 0.000$ for gage height and $p-value < 0.03$ for wind speed.  We can say there is a **statistically significant correlation** for both variables. 
 
-### Testing OLS Assumptions
+## Testing OLS Assumptions
 
 We can assume assumption 1 (linear relationship) and 2 ($X$ variables are exogenous $\mathop{\boldsymbol{E}}\left[ u \mid X \right] = 0$) of OLS hold up.  However, the linear relationship is week.  Assumption 3 requires our $X$ variables to have variation.  Based on the relationship plots above, we can see this holds true. 
 
@@ -381,15 +381,15 @@ qq_plot <- ggplot(predictions, aes(sample = residuals)) +
 The residuals are not normally distributed as there is a long right tail with high outliers.  This indicates that the regression analysis is under-predicting average hourly turbidity levels.  The Q-Q Plot indicates the distribution is generally normally distributed for values up to the positive 1 theoretical quantile.  This suggests that the model is not normally distributed for extreme high values.
 
 
-### Conclusions and Future Analysis
+## Conclusions and Future Analysis
 
 This analysis indicates that wind speed and tidal stage (gage height) correlate with higher turbidity levels at both the hourly and daily intervals. However, based on the adjusted $R^2$ value, ommited variable bias is likely an issue. Two critical omitted variables we could add to the model are upstream sediment loading, wind-wave resuspension, and an interaction between some of the variables. 
 
-Based on the residual plot, assumption 4 of OLS may not be satisfied and OLS may not be the estimator with the lowest variance.  Also, because OLS is sensitive to outliers, I removed all values over 300 FNU in the turbidity dataset. This helped with the analysis, but still limits the use of OLS with the dataset. An alternative to removing values is to winsorize the dataset such that all extreme values are capped at a specified percentile range. Another option could be to chooose a different regression technique. Partial least squares (PLS) is helpful when comparing multiple continuous dependent variables or when the independent variables are highly correlated.  If wind-wave resuspension was added in a future analysis, PLS may prove to be a better regression method.
+Based on the residual plot, assumption 4 of OLS may not be satisfied and OLS may not be the estimator with the lowest variance.  Also, because OLS is sensitive to outliers, I removed all values over 300 FNU in the turbidity dataset. This helped with the analysis, but still limits the use of OLS with the dataset. An alternative to removing values is to winsorize the dataset such that all extreme values are capped at a specified percentile range. Another option could be to choose a different regression technique. Partial least squares (PLS) is helpful when comparing multiple continuous dependent variables or when the independent variables are highly correlated.  If wind-wave resuspension was added in a future analysis, PLS may prove to be a better regression method.
 
 Break time variable up into categorical years + month columns so you could compare correlation on turbidity between  months of the year.  Wind speed in the Delta is relatively low during the late fall and winter months and then increases during the spring and summer (Schoellhamer et al. 2016).
 
-### References
+## References
 
 Bever, Aaron J., Michael L. MacWilliams, and David K. Fullerton. 2018. “Influence of an Observed Decadal Decline in Wind Speed on Turbidity in the San Francisco Estuary.” Estuaries and Coasts 41 (7): 1943–67. https://doi.org/10.1007/s12237-018-0403-x.
 
