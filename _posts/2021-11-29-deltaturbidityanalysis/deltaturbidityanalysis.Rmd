@@ -27,32 +27,6 @@ categories:
   - Regression
 ---
 
-```{r, include=FALSE}
-# output:
-#   distill::distill_article:
-#     toc: true
-#     self_contained: false
-#   pdf_document:
-#     toc: true
-#     includes:  
-#       in_header: my_header.tex
-#   html_document:
-#     toc: yes
-#     df_print: paged
-
-# output:
-#   distill::distill_article:
-#     self_contained: false
-#     code_folding: true
-#     toc: true              
-#     toc_float: true
-# bibliography: bibliography.bib
-# preview: images/crime_hills.jpg
-# categories: 
-#   - R
-#   - GIS
-```
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
                       warning = FALSE, 
@@ -86,7 +60,7 @@ In the Cache Shag Slough Complex (CSC) in the San Francisco Estuary, does turbid
 
 <figure>
 
-<img src="./images/lindsey_slough.png" alt="Picture of Lindsey Slough in the Cache Shag Slough Complex" style="height: 534px; width:800px;"/>
+<img src="./images/lindsey_slough.png" alt="Picture of Lindsey Slough in the Cache Shag Slough Complex" style="height: 329px; width:581px;"/>
 
 <figcaption>
 
