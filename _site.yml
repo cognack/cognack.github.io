@@ -9,7 +9,7 @@ navbar:
     - text: "Home"
       href: index.html
     - text: "Resume"
-      href: resume.html
+      href: resume/Cognac_10_10_21.pdf
     - text: "Blog"
       href: blog.html
   source_url: https://github.com/cognack/cognack.github.io

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.12.1)  2 DEC 2021 00:19
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.12.1)  2 DEC 2021 03:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -818,9 +818,9 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ]
 File: deltaturbidityanalysis_files/figure-latex/Figure2-1.pdf Graphic file (type pdf)
 <use deltaturbidityanalysis_files/figure-latex/Figure2-1.pdf>
+[2]
 File: deltaturbidityanalysis_files/figure-latex/Figure3-1.pdf Graphic file (type pdf)
 <use deltaturbidityanalysis_files/figure-latex/Figure3-1.pdf>
-[2]
 File: deltaturbidityanalysis_files/figure-latex/Figure4-1.pdf Graphic file (type pdf)
 <use deltaturbidityanalysis_files/figure-latex/Figure4-1.pdf>
 File: deltaturbidityanalysis_files/figure-latex/Figure5-1.pdf Graphic file (type pdf)
@@ -840,42 +840,38 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[3]
+[3] [4]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/b/n' will be
-(Font)              scaled to size 10.95pt on input line 362.
+(Font)              scaled to size 10.95pt on input line 360.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/b/n' will be
-(Font)              scaled to size 7.665pt on input line 362.
+(Font)              scaled to size 7.665pt on input line 360.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/b/n' will be
-(Font)              scaled to size 5.475pt on input line 362.
+(Font)              scaled to size 5.475pt on input line 360.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
-(Font)              scaled to size 10.95099pt on input line 362.
+(Font)              scaled to size 10.95099pt on input line 360.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
-(Font)              scaled to size 7.66568pt on input line 362.
+(Font)              scaled to size 7.66568pt on input line 360.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
-(Font)              scaled to size 5.4755pt on input line 362.
+(Font)              scaled to size 5.4755pt on input line 360.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
-(Font)              scaled to size 10.94882pt on input line 362.
+(Font)              scaled to size 10.94882pt on input line 360.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
-(Font)              scaled to size 7.66417pt on input line 362.
+(Font)              scaled to size 7.66417pt on input line 360.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
-(Font)              scaled to size 5.47441pt on input line 362.
-[4]
+(Font)              scaled to size 5.47441pt on input line 360.
 File: deltaturbidityanalysis_files/figure-latex/Figure6-1.pdf Graphic file (type pdf)
 <use deltaturbidityanalysis_files/figure-latex/Figure6-1.pdf>
-[5] (./deltaturbidityanalysis.aux)
+[5] [6] (./deltaturbidityanalysis.aux)
 Package rerunfilecheck Info: File `deltaturbidityanalysis.out' has not changed.
-(rerunfilecheck)             Checksum: 18F881A66AEA85EB7EF1E0E49BF7B3A5;1643.
+(rerunfilecheck)             Checksum: 618806B095B2578CBAA369E4E77D3F55;1779.
  ) 
 Here is how much of TeX's memory you used:
  18102 strings out of 478256
  336497 string characters out of 5854626
- 787589 words of memory out of 5000000
+ 786589 words of memory out of 5000000
  38367 multiletter control sequences out of 15000+600000
  411382 words of font info for 83 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  86i,11n,121p,319b,358s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on deltaturbidityanalysis.pdf (5 pages).
+Output written on deltaturbidityanalysis.pdf (6 pages).

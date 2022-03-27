@@ -1,6 +1,6 @@
 ---
 title: "Steven Cognac"
-image: "steven_photo.png"
+image: "images/steven_photo.png"
 links:
   - label: <i class="fab fa-linkedin"></i> LinkedIn
     url: "https://www.linkedin.com/in/steven-cognac-24542658/"
@@ -12,9 +12,6 @@ links:
     url: "https://github.com/cognack/"
   - label: <i class="fa fa-envelope"></i> Email
     url: "mailto:scognac@bren.ucsb.edu"
-
-    
-    
 output: postcards::jolla
 site: distill::distill_website
 ---
