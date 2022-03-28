@@ -1,0 +1,19 @@
+---
+title: "About"
+output: 
+  distill::distill_article:
+    self_contained: no
+    toc: yes
+---
+
+![](images/steven_2.jpeg){width=25%} 
+
+## Professional
+Worked as a biologist and wetland scientist for over 7 years in the private and non-profit sectors. I'm a master's student in the [MEDS](https://bren.ucsb.edu/masters-programs/master-environmental-data-science) program at UCSB where my capstone work focuses on predicting crop yields in sub-Saharan Africa by combining satellite imagery and machine learning.
+
+## Personal
+East coast transplant (Massachusetts) living in beautiful Santa Barbara, California. I don't have much free time as a current student, but when I do you can find me botanizing the Santa Ynez Mountains [<img alt="Image" draggable="true" src="https://pbs.twimg.com/profile_images/1192176416256745472/5uis_66j_400x400.jpg" width="22" height="22" border ="0" class="css-9pa8cd">](https://www.inaturalist.org/people/stevenc_plantid/) [<img alt="logo" src="https://www.calflora.org/entry/imgx/newsun100dk.gif" width="22" height="22" border="0"></i>](https://www.calflora.org/cgi-bin/contrib_profile.cgi?seq=113317), playing pick-up soccer, or kite surfing the point at Leadbetter Beach. 
+
+
+## Contact
+Interested in chatting? Feel free to contact me on [email](mailto:scognac@bren.ucsb.edu){target="_blank"}, [Twitter](https://twitter.com/Cognack_){target="_blank"}, or [LinkedIn](https://www.linkedin.com/in/steven-cognac-24542658/){target="_blank"}. I'm open to work opportunities and look forward to hearing from you!

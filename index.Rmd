@@ -4,19 +4,16 @@ image: "images/steven_photo.png"
 links:
   - label: <i class="fab fa-linkedin"></i> LinkedIn
     url: "https://www.linkedin.com/in/steven-cognac-24542658/"
-  - label: <img alt="Image" draggable="true" src="https://pbs.twimg.com/profile_images/1192176416256745472/5uis_66j_400x400.jpg" width="22" height="22" border ="0" class="css-9pa8cd"> iNaturalist
-    url: "https://www.inaturalist.org/people/stevenc_plantid/"
-  - label: <img alt="logo" src="https://www.calflora.org/entry/imgx/newsun100dk.gif" width="22" height="22" border="0"></i> Calflora
-    url: "https://www.calflora.org/cgi-bin/contrib_profile.cgi?seq=113317"
   - label: <i class="fab fa-github"></i> GitHub
     url: "https://github.com/cognack/"
   - label: <i class="fa fa-envelope"></i> Email
     url: "mailto:scognac@bren.ucsb.edu"
+  - label: MEDS Capstone
+    url: "https://bren.ucsb.edu/projects/open-source-pipeline-remote-sensing-crop-yields-under-environmental-change-sub-saharan"
+  - label: Bren Profile
+    url: "https://bren.ucsb.edu/people/steven-cognac"
 output: postcards::jolla
 site: distill::distill_website
 ---
 
-
-Hi! I am a plant biologist and wetland scientist learning to code.  I am interested in advancing the analytical toolkit for practitioners of applied resource management and streamlining the data collection, wrangling, and distribution pipeline.
-
-
+ <font size="4">Hi, welcome to my website. I'm a student in the Master of Environmental Data Science ([MEDS](https://bren.ucsb.edu/masters-programs/master-environmental-data-science)) program at the Bren School of Environmental Science and Management at UCSB. Feel free to look around my website to check and see what I've been up to.</font> 
