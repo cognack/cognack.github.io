@@ -70,14 +70,14 @@ d-appendix {
   --text-color:       rgba(1, 0, 0, 0.8);
   --text-size:        20px;
   --hover-color:      white;
-  --bkgd-color:       #EDFFD9;
+  --bkgd-color:       #A9CBB7;
 }
 
 .distill-site-footer {
   --text-color:       rgba(1, 0, 0, 0.8);
   --text-size:        15px;
   --hover-color:      white;
-  --bkgd-color:       #EDFFD9;
+  --bkgd-color:       #A9CBB7;
 }
 
 /*-- Additional custom styles --*/

@@ -11,7 +11,7 @@ navbar:
     - text: "About"
       href: about.html
     - text: "Resume"
-      href: resume/Cognac_10_10_21.pdf
+      href: resume/CognacResume_04_28_22.pdf
     - text: "Blog"
       href: blog.html
   source_url: https://github.com/cognack/cognack.github.io
