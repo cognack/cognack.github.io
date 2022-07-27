@@ -16,4 +16,6 @@ output: postcards::jolla
 site: distill::distill_website
 ---
 
- <font size="4">Hi, welcome to my website. I'm a student in the Master of Environmental Data Science ([MEDS](https://bren.ucsb.edu/masters-programs/master-environmental-data-science)) program at the Bren School of Environmental Science and Management at UCSB. Feel free to look around my website to check and see what I've been up to.</font> 
+#### Welcome to my website!
+
+<font size="4"> I'm a recent graduate in the [Master of Environmental Data Science](https://bren.ucsb.edu/masters-programs/master-environmental-data-science) program at the Bren School at the University of California Santa Barbara. I previously worked as a biologist/scientist in environmental consulting focusing on environmental compliance, permitting, and water resources management. Feel free to look around my website to check and see what I've been up to lately.</font>
