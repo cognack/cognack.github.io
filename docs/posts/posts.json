@@ -1,5 +1,29 @@
 [
   {
+    "path": "posts/2022-08-01-cropmosaiks/",
+    "title": "2022 MEDS Capstone Public Presentation",
+    "description": "An Open Source Pipeline for Remote Sensing of Crop Yields: A Zambia Case Study.",
+    "author": [
+      {
+        "name": "Steven Cognac, Juliet Cohen, Grace Lewin, Cullen Molitor",
+        "url": {}
+      }
+    ],
+    "date": "2022-05-28",
+    "categories": [
+      "Python",
+      "Remote Sensing",
+      "Spatial Analysis",
+      "Agriculture"
+    ],
+    "contents": "\nThe MEDS Capstone Public Presentation is the cornerstone and culmination of the Master of Environmental Data Science program at the Bren School of Environmental Science & Management at UCSB. The capstone process pairs students in teams 2 to 4 to tackle environmental problems using open-data science practices and principles. These projects enable us to showcase our data science chops while managing all stages of a data science driven project. As if your are you own consultant offering your services, students manage client communication, expectations, timelines, deliverables, product & project updates, and communicating that science to a technical and non-technical audience.\nCheck out all of the awesome capstone projects of the MEDS 2022 cohort by clicking here.\nCropMOSAIKS\nMy capstone group created an open-source pipeline that combines satellite imagery, machine learning, and regression to predict crop yields over time. This pipeline adapts and expands upon the MOSAIKS framework described by Rolf et al. 2020. Simplified, the pipeline is a two-step process. In step 1, satellite imagery is encoded using the random convolutional features approach. In step 2, we combine the geo-located features with geo-located crop yield data to train a model and run cross-validated ridge regression. The primary contributions of this work include the following:\ndemonstrating MOSAIKS utility in the agricultural sector,\nprocessing monthly public satellite imagery (Landsat missions and Sentinel 2), and\noptimizing the pipeline using Microsoft Planetary Computer\nFigure 1. Example of processed satellite imagery for random feature 359Our capstone group consisted of four graduate students:\nmyself, Steven Cognac,\nJuliet Cohen,\nGrace Lewin, and\nCullen Molitor.\nTitle: An open-source pipeline for remote sensing of crop yields: a Zambia case study\nLink: YouTube Public Presentation Recording\nCodebase: CropMOSAIKS GitHub\nAbstract\nHigh-quality, long-term environmental data sets are the foundation of long-range risk and climate modeling. However, producing such datasets is costly, logistically challenging, and resource-intensive. Due to limited agricultural data across sub-Saharan Africa, policy-makers, farmers, and researchers are currently unable to accurately forecast short-run food security risks posed by weather anomalies and long-run climate change projections. Recent machine learning approaches applied to high-resolution satellite imagery have successfully modeled various social and environmental variables. Here, we expand upon a recently developed machine learning approach to build a model that predicts maize yields over time using public satellite imagery. We developed a generalizable pipeline from survey data through a use case for predicting maize yields in Zambia. In 2020 and 2021, the Zambia Statistics Agency could not survey maize growers due to the COVID-19 pandemic. We use our model to fill in this data gap of maize yield predictions during these years. Through parameter optimization, we selected the model with the best ability to predict over space and time. Our model performed better overall relative to its predictive performance over time. The processed satellite imagery, predictions, and pipeline serve as a tool for the research community and users interested in analyzing Zambia’s current and future food security risks. This pipeline further enables users to explore global and region-specific questions at scale.\nAcknowledgements\nBren School: Tamma Carleton, Assistant Professor; Brad Hill, IT Director; Allison Horst, Assistant Teaching Professor; Kat Le, Technical Applications Manager\nJonathan Proctor, postdoctoral fellow at the Harvard Data Science Initiative and the Center for the Environment\nBaylis Lab, University of California, Santa Barbara\nZambia Statistics Agency\nMicrosoft Planetary Computer: Caleb Robinson, Tom Augsburger\n\n\n\n",
+    "preview": "posts/2022-08-01-cropmosaiks/presentation_title_pg.png",
+    "last_modified": "2022-08-02T11:08:59-07:00",
+    "input_file": {},
+    "preview_width": 1128,
+    "preview_height": 631
+  },
+  {
     "path": "posts/2021-11-29-deltaturbidityanalysis/",
     "title": "Cache Slough Complex Turbidity Analysis",
     "description": "EDS 222: Time-series analysis of turbidity in the Cache Slough Complex of the Inland Delta in Solano County, California. Regression of turbidity on wind speed and tide data.",

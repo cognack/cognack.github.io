@@ -1,19 +1,47 @@
 ---
-title: "About"
+title: "About Me"
+description: ""
 output: 
   distill::distill_article:
     self_contained: no
-    toc: yes
+    toc: no
 ---
 
-![](images/steven_2.jpeg){width=25%} 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(here)
+```
+
+<center>
+
+<font size="5">
+
+I am an environmental data scientist with a background in environmental consulting, wetland restoration and permitting, and water resources management.
+
+![](images/steven_1.jpeg){width="45%"}
+
+</font>
+
+</center>
+
+<center>
+
+## Education
+
+I received my B.S. from the University of Massachusetts Amherst in 2014 with a dual degree in Environmental Science and Sustainable Food & Farming. There I grew my interests in sustainable agriculture, wetland conservation, and the impacts of climate change on the environment and ecosystem services. In June 2022, I graduated from UCSB's [Master of Environmental Data Science (MEDS)](https://bren.ucsb.edu/masters-programs/master-environmental-data-science) program. For my capstone, I created an [open-source pipeline for remote sensing of crop yields](https://bren.ucsb.edu/projects/open-source-pipeline-remote-sensing-crop-yields-zambia-case-study), with Zambia as a case study.
 
 ## Professional
-Worked as a biologist and wetland scientist for over 7 years in the private and non-profit sectors. I'm a master's student in the [MEDS](https://bren.ucsb.edu/masters-programs/master-environmental-data-science) program at UCSB where my capstone work focuses on predicting crop yields in sub-Saharan Africa by combining satellite imagery and machine learning.
+
+Before the MEDS program, I worked in environmental consulting as a scientist, otherwise known as a jack-of-all-trades (i.e., biologist, wetland scientist, environmental analyst, environmental planner, water quality specialist, construction monitor, etc.). I was in these roles for around six years. I managed ecological restoration projects, prepared a litany of environmental permitting and planning reports, and carried out rare and invasive plant monitoring.
 
 ## Personal
-East coast transplant (Massachusetts) living in beautiful Santa Barbara, California. I don't have much free time as a current student, but when I do you can find me botanizing the Santa Ynez Mountains [<img alt="Image" draggable="true" src="https://pbs.twimg.com/profile_images/1192176416256745472/5uis_66j_400x400.jpg" width="22" height="22" border ="0" class="css-9pa8cd">](https://www.inaturalist.org/people/stevenc_plantid/) [<img alt="logo" src="https://www.calflora.org/entry/imgx/newsun100dk.gif" width="22" height="22" border="0"></i>](https://www.calflora.org/cgi-bin/contrib_profile.cgi?seq=113317), playing pick-up soccer, or kite surfing the point at Leadbetter Beach. 
 
+I'm an east coast transplant from Lowell, Massachusetts, living in beautiful Santa Barbara, California. I love to kitesurf 🪁🏄‍, cook 👨‍🍳, botanize 🌿, read and learn new things 📚, play soccer ⚽, hike around 🥾, and bike around 🚲.
+
+![](images/about/steven_flowers.jpeg){width="25%"} ![](images/about/steven_kokopelli.jpeg){width="25%"} ![](images/about/steven_cows.jpeg){width="25%"} ![](images/about/steven_family.jpeg){width="44%"} ![](images/about/steven_cooking.jpeg){width="25%"} ![](images/about/steven_kitesurfing.jpeg){width="25%"}
 
 ## Contact
-Interested in chatting? Feel free to contact me on [email](mailto:scognac@bren.ucsb.edu){target="_blank"}, [Twitter](https://twitter.com/Cognack_){target="_blank"}, or [LinkedIn](https://www.linkedin.com/in/steven-cognac-24542658/){target="_blank"}. I'm open to work opportunities and look forward to hearing from you!
+
+Interested in connecting? Feel free to contact me by [email](mailto:scognac@bren.ucsb.edu){target="_blank"}, [Twitter](https://twitter.com/Cognack_){target="_blank"}, or [LinkedIn](https://www.linkedin.com/in/steven-cognac-24542658/){target="_blank"}. I'm open to work opportunities and look forward to hearing from you!
+
+</center>
