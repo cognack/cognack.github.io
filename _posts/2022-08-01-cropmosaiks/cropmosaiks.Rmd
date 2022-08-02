@@ -3,7 +3,13 @@ title: "2022 MEDS Capstone Public Presentation"
 description: |
   An Open Source Pipeline for Remote Sensing of Crop Yields: A Zambia Case Study.
 author:
-  - name: Steven Cognac, Juliet Cohen, Grace Lewin, Cullen Molitor
+  - name: Steven Cognac
+    url: {}
+  - name: Juliet Cohen
+    url: {}
+  - name: Grace Lewin
+    url: {}
+  - name: Cullen Molitor
     url: {}
 date: 2022-05-28
 output:
