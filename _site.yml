@@ -11,11 +11,9 @@ navbar:
     - text: "About"
       href: about.html
     - text: "Resume"
-      href: resume/CognacResume_04_28_22.pdf
+      href: resume/CognacResume_08_03_22.pdf
     - text: "Blog"
       href: blog.html
-    - text: "Capstone"
-      href: capstone.html
   source_url: https://github.com/cognack/cognack.github.io
 output: distill::distill_article
 theme: theme.css

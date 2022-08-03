@@ -7,7 +7,7 @@ links:
   - label: <i class="fab fa-github"></i> GitHub
     url: "https://github.com/cognack/"
   - label: <i class="fa fa-envelope"></i> Email
-    url: "mailto:scognac@bren.ucsb.edu"
+    url: "mailto:cognac.steven@gmail.com"
   - label: MEDS Capstone
     url: "https://bren.ucsb.edu/projects/open-source-pipeline-remote-sensing-crop-yields-under-environmental-change-sub-saharan"
   - label: Bren Profile
