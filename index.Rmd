@@ -1,6 +1,6 @@
 ---
 title: ""
-image: "images/steven_2.png"
+image: "images/steven_2.jpeg"
 links:
   - label: <i class="fab fa-linkedin"></i> LinkedIn
     url: "https://www.linkedin.com/in/steven-cognac-24542658/"
