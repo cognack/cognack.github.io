@@ -1,0 +1,26 @@
+[general]
+creator=R package 'raster'
+created=2022-08-10 17:08:39
+[data]
+datatype=FLT4S
+byteorder=little
+nbands=7
+bandorder=BIL
+minvalue=-76:-0.800000011920929:6.30000019073486:-12.1999998092651:47:0.209999993443489:6.82999992370605
+maxvalue=3648:23.7999992370605:19.2000007629395:9.5:2028:263.320007324219:15.039999961853
+nodatavalue=-3.4e+38
+[legend]
+legendtype=
+values=
+color=
+[description]
+layername=WC_alt:WC_bio1:WC_bio2:WC_bio6:WC_bio12:ER_tri:ER_topoWet
+[georeference]
+nrows=114
+ncols=123
+xmin=-124.416666666667
+ymin=32.5
+xmax=-114.166666666667
+ymax=42
+projection=+proj=longlat +datum=WGS84 +no_defs
+wkt=GEOGCRS["WGS 84 (with axis order normalized for visualization)",    DATUM["World Geodetic System 1984",        ELLIPSOID["WGS 84",6378137,298.257223563,            LENGTHUNIT["metre",1]]],    PRIMEM["Greenwich",0,        ANGLEUNIT["degree",0.0174532925199433]],    CS[ellipsoidal,2],        AXIS["geodetic longitude (Lon)",east,            ORDER[1],            ANGLEUNIT["degree",0.0174532925199433,                ID["EPSG",9122]]],        AXIS["geodetic latitude (Lat)",north,            ORDER[2],            ANGLEUNIT["degree",0.0174532925199433,                ID["EPSG",9122]]],    REMARK["Axis order reversed compared to EPSG:4326"]]

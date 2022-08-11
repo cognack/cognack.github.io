@@ -33,14 +33,13 @@ For this exercise we'll use the blue oak (*Quercus douglasii*) tree. Blue oak tr
 
 ![*Quercus douglasii*; Blue Oak. [2018 Gary McDonald](https://calphotos.berkeley.edu/cgi/img_query?enlarge=0000+0000+1218+0143)](images/blue_oak.jpeg)
 
-## Objectives
+The steps we'll follow to for out SDM are as follows:
 
-## Steps
-
--   Collect species data
--   Collect cliamte data
+-   Collect species occurrence data
+-   Gather cliamte raster data
 -   Crop climate data to California
--   
+-   Run MaxEnt Model
+-   Calibrate model and re-run MaxEnt
 
 ## Installing Packages
 
@@ -51,6 +50,7 @@ library(sdmpredictors) # get environmental raster data
 library(rJava)
 
 library(leaflet) # interactive mapping
+library(leafem) # leaflet html plugins
 library(mapview) # interactive mapping
 library(raster) # raster data manipulation
 library(sf) # spatial vector data manipulation
@@ -411,8 +411,8 @@ pal <- colorNumeric(
   na.color = "transparent"
 )
 
-obs_pal <- colorNumeric(palette = "green",
-                        domain = pts$present)
+ # obs_pal <- colorNumeric(palette = "green",
+ #                        domain = pts$present)
 
 map <- leaflet() |> 
   addTiles() |> 
@@ -427,11 +427,11 @@ map <- leaflet() |>
   
   # add species observations
   addCircleMarkers(data = obs, radius = 1, fill = TRUE, color = "green") |> 
-  addPolylines(data = ca_geo_sp) |> 
+  addPolylines(data = ca_geo) |> 
 
   addLegend(pal = pal, values = values(y_maxv), title = "MaxEnt Predictions") |>
   # addLegend(pal = obs_pal, values = values(pts), title = "Blue Oak Observations") |> 
-  addLegend(p)
+  
   # add measure
   addMeasure() |> 
   addHomeButton(extent(obs), "observations")
@@ -444,23 +444,6 @@ map
 ```
 
 ```{r}
-
 mapview(obs, map.types = "OpenTopoMap", alpha = 0.1) +
-  mapview(y_maxv, col.regons = pal(100)) |> 
-  garnishMap()
+  mapview(y_maxv, col.regons = pal(100))
 ```
-
-
-
-```{r}
-y_maxv <- predict(mdl_maxv, env_stack)
-#plot(y_maxv)
-
-thr <- 0.4
-
-plot(y_maxv > thr)
-```
-
-
-
-
