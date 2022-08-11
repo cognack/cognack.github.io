@@ -10,12 +10,15 @@ output:
   distill::distill_article:
     self_contained: false
     toc_float: true
+preview: images/CAS_Bluo.png
 categories:
   - R
   - Spatial Analysis
   - Species Distribution Modeling
   - MaxEnt
 ---
+
+cover image courtsey of [California Academy of Sciences, 2016](https://calphotos.berkeley.edu/cgi/img_query?enlarge=6666+6666+0116+0135)
 
 ```{r setup, include=FALSE, warning=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -25,9 +28,9 @@ library(tidyr)
 library(DT) # interface to the JavaScript library 'DataTables'
 ```
 
-In this post I'll go through an introduction to species distribution modeling (SDM) using the `dismo` package. These are machine learning (algorithm) based approaches. We'll go through the steps of acquiring observation data, generating absence points, gathering underlying climate data, and making predictions.
+In this post I'll go through an introduction to species distribution modeling (SDM) using the `dismo` package. These is machine learning (algorithm) based approach to SDM. I'll walk through the steps of acquiring species occurrence data, gathering underlying climate data, making MaxEnt predictions, and calibrating our model.
 
-Here, we'll use an SDM to make inferences about the distribution of suitable habitat for a species of interest. There are many SDM approaches out there all with their own pros and cons. Check out this [table comparing different SDM options](https://www.seascapemodels.org/SDM-fish-course-notes/2021-09-20-SDM-fish-course.html#comparison-of-some-different-sdm-options). Further, there are many limitations of SDMs (list articles here), their ability to gain ecological insight and predict species distribution across a landscape is valuable.
+We'll use an SDM to make inferences about the distribution of suitable habitat for a species of interest. There are many SDM approaches out there all with their own pros and cons. Check out this [table comparing different SDM options](https://www.seascapemodels.org/SDM-fish-course-notes/2021-09-20-SDM-fish-course.html#comparison-of-some-different-sdm-options). While there are many limitations of SDMs, their ability to gain ecological insight and predict species distribution across a landscape is valuable.
 
 For this exercise we'll use the blue oak (*Quercus douglasii*) tree. Blue oak trees are native and and endemic to California. They occur with a narrow range along the valleys and slopes of the mountain ranges that surround the Central Valley in California.
 
@@ -204,10 +207,10 @@ env_stack <- load_layers(env_layers_vec)
 plot(env_stack, nc=2)
 ```
 
-These raster layers are currently global. Let's crop the environmental rasters to a reasonable study area. There are two good options to clip our rasters: 
+These raster layers are currently global. Let's crop the environmental rasters to a reasonable study area. There are two good options to clip our rasters:
 
-1. create a convex hull around our species observations using the `sf` package (`sf::st_convex_hull(st_union())`) 
-2. use the boundary of California. We'll use this second option grabbing boundaries from the `USAboundaries` package
+1.  create a convex hull around our species observations using the `sf` package (`sf::st_convex_hull(st_union())`)
+2.  use the boundary of California. We'll use this second option grabbing boundaries from the `USAboundaries` package
 
 ```{r, cropping environmental data}
 # two spatial files we'll generate
@@ -247,8 +250,6 @@ env_stack <- stack(env_stack_grd)
 
 plot(env_stack, nc=2)
 ```
-
-
 
 ## Extract Raster values from Observations
 
@@ -319,6 +320,7 @@ mdl <- read_rds(mdl_maxent_rds)
 # plot variable contributions per predictor
 plot(mdl)
 ```
+
 In our *Variable Contribution* plot we are checking out the percentage our environmental predictors contribute in our model. We see here that the top three predictors *WC_bio12, WC_bio6, and WC_bio1* contribute approximately 90%.
 
 ## Response Curves
@@ -330,10 +332,10 @@ Response curves show how each environmental variable affects the MaxEnt predicti
 dismo::response(mdl)
 ```
 
-
 Let's make raw predictions of for species location
 
 ## Generate Raw Predictions
+
 ```{r}
 # predict
 y_predict <- predict(env_stack, mdl) #, ext=ext, progress='')
@@ -343,18 +345,18 @@ data(wrld_simpl, package="maptools")
 plot(wrld_simpl, add=TRUE, border='dark grey')
 ```
 
-
 ## Model Calibration
 
-While these raw results are a good start, it's important to calibrate your model. It is critical to check for multicollinearity between independent variables in your model. When you have multiple independent variables (in our case, our _X_ values) that have high intercorrelation, this can lead to skewed or misleading results. This essentially widens your confidence intervals to produce less reliable results.
+While these raw results are a good start, it's important to calibrate your model. It is critical to check for multicollinearity between independent variables in your model. When you have multiple independent variables (in our case, our *X* values) that have high intercorrelation, this can lead to skewed or misleading results. This essentially widens your confidence intervals to produce less reliable results.
 
 We first use a *pairs* plot to identify pairwise correlations between variables to identify pairs or groups of variables that are highly correlated. You can see below we have some strongly correlated variables. For our model, we'll set our pairwise correlation threshold at 0.7.
+
 ```{r, pairs plots}
 # show pairs plot before multicollinearity reduction
 raster::pairs(env_stack)
 ```
 
-We can detect multicollinearity (strong correlation between two or more independent variables) with a Variance Inflaction Factor (VIF) with the `usdm::vif()` function. A value with a VIF greater than 10 indicates that our model has a collinearity problem. We can reduce 
+We can detect multicollinearity (strong correlation between two or more independent variables) with a Variance Inflaction Factor (VIF) with the `usdm::vif()` function. A value with a VIF greater than 10 indicates that our model has a collinearity problem. We can reduce
 
 ```{r, calc VIF}
 # calculate VIF per predictor
@@ -376,7 +378,7 @@ env_stack_v <- usdm::exclude(env_stack, v)
 pairs(env_stack_v)
 ```
 
-Let's re-compute our 
+Let's re-compute our
 
 ```{r}
 mdl_maxv_rds  <- here(dir_data, "mdl_maxent_vif.rds")
@@ -400,7 +402,6 @@ plot(y_maxv, main='Maxent, final prediction')
 data(wrld_simpl, package="maptools")
 plot(wrld_simpl, add=TRUE, border='dark grey')
 ```
-
 
 ```{r, maxent predictions}
 
