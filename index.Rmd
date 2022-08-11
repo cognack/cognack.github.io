@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Steven Cognac"
 image: "images/steven_2.jpeg"
 links:
   - label: <i class="fab fa-linkedin"></i> LinkedIn

@@ -38,7 +38,7 @@ Before the MEDS program, I worked in environmental consulting as a scientist, ot
 
 I'm an east coast transplant from Lowell, Massachusetts, living in beautiful Santa Barbara, California. I love to kitesurf 🪁🏄‍, cook 👨‍🍳, botanize 🌿, read and learn new things 📚, play soccer ⚽, hike around 🥾, and bike around 🚲.
 
-![](images/about/steven_flowers.jpeg){width="30%"} ![](images/about/steven_kokopelli.jpeg){width="30%"} ![](images/about/steven_cows.jpeg){width="30%"} ![](images/about/steven_family.jpeg){width="44%"} ![](images/about/steven_cooking.jpeg){width="25%"} ![](images/about/steven_kitesurfing.jpeg){width="25%"}
+![](images/about/steven_flowers.jpeg){width="35%"} ![](images/about/steven_kokopelli.jpeg){width="35%"} ![](images/about/steven_cows.jpeg){width="35%"} ![](images/about/steven_family.jpeg){width="44%"} ![](images/about/steven_cooking.jpeg){width="25%"} ![](images/about/steven_kitesurfing.jpeg){width="25%"}
 
 ## Contact
 
