@@ -10,7 +10,7 @@ output:
   distill::distill_article:
     self_contained: false
     toc_float: true
-preview: images/CAS_Bluo.png
+preview: CAS_Bluo.png
 categories:
   - R
   - Spatial Analysis
@@ -23,9 +23,6 @@ cover image courtsey of [California Academy of Sciences, 2016](https://calphotos
 ```{r setup, include=FALSE, warning=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(here) # file referencing in project-oriented workflows
-library(tidyverse) # data wrangling & visualizations (will use: 'dplyr', 'purrr'. 'ggplot2', 'readr')
-library(tidyr)
-library(DT) # interface to the JavaScript library 'DataTables'
 ```
 
 In this post I'll go through an introduction to species distribution modeling (SDM) using the `dismo` package. These is machine learning (algorithm) based approach to SDM. I'll walk through the steps of acquiring species occurrence data, gathering underlying climate data, making MaxEnt predictions, and calibrating our model.
@@ -51,6 +48,9 @@ The steps we'll follow to for out SDM are as follows:
 library(spocc) # extract species occurrence data
 library(sdmpredictors) # get environmental raster data
 library(rJava)
+library(usdm) # uncertainty analysis for species distribution models: vifcor()
+library(dismo) # species distribution modeling: maxent(), predict(), evaluate()
+
 
 library(leaflet) # interactive mapping
 library(leafem) # leaflet html plugins
@@ -59,8 +59,11 @@ library(raster) # raster data manipulation
 library(sf) # spatial vector data manipulation
 library(USAboundaries) # grab state boundaries
 
-library(usdm) # uncertainty analysis for species distribution models: vifcor()
-library(dismo) # species distribution modeling: maxent(), predict(), evaluate()
+
+
+library(tidyverse) # data wrangling & visualizations (will use: 'dplyr', 'purrr'. 'ggplot2', 'readr')
+library(tidyr)
+library(DT) # interface to the JavaScript library 'DataTables'
 
 # overwrite raster::select
 select <- dplyr::select 
