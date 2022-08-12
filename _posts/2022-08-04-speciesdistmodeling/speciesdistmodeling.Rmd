@@ -10,7 +10,7 @@ output:
   distill::distill_article:
     self_contained: false
     toc_float: true
-preview: CAS_Bluo.png
+preview: CAS_Bluo.jpeg
 categories:
   - R
   - Spatial Analysis
