@@ -10,7 +10,7 @@ output:
   distill::distill_article:
     self_contained: false
     toc_float: true
-preview: CAS_Bluo.jpeg
+preview: blue_oak_range.png
 urlcolor: blue
 categories:
   - R
