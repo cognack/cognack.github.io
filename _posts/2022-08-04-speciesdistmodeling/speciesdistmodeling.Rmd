@@ -11,10 +11,11 @@ output:
     self_contained: false
     toc_float: true
 preview: CAS_Bluo.jpeg
+urlcolor: blue
 categories:
   - R
   - Spatial Analysis
-  - Species Distribution Modeling
+  - SDM
   - MaxEnt
 ---
 
@@ -22,35 +23,34 @@ cover image courtsey of [California Academy of Sciences, 2016](https://calphotos
 
 ```{r setup, include=FALSE, warning=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-library(here) # file referencing in project-oriented workflows
+library(here)
 ```
 
-In this post I'll go through an introduction to species distribution modeling (SDM) using the `dismo` package. These is machine learning (algorithm) based approach to SDM. I'll walk through the steps of acquiring species occurrence data, gathering underlying climate data, making MaxEnt predictions, and calibrating our model.
+## Species Distribution Modeling using MaxEnt
 
-We'll use an SDM to make inferences about the distribution of suitable habitat for a species of interest. There are many SDM approaches out there all with their own pros and cons. Check out this [table comparing different SDM options](https://www.seascapemodels.org/SDM-fish-course-notes/2021-09-20-SDM-fish-course.html#comparison-of-some-different-sdm-options). While there are many limitations of SDMs, their ability to gain ecological insight and predict species distribution across a landscape is valuable.
+In this post I'll walk through the steps of species distribution modeling (SDM) using the MaxEnt (Maximum Entropy ([Elith 2011](https://onlinelibrary.wiley.com/doi/10.1111/j.1472-4642.2010.00725.x)) prediction approach. This is a machine learning (algorithm) approach to SDM that uses known occurrence points combined with explanatory variables (i.e. environmental data) to the estimate presence across a study area. MaxEnt is probably the most commonly used species distribution model since it performs well with few input data points, only requires presence points (and samples background for comparison) and is easy to use with a Java graphical user interface (GUI). Check out the [rSpatial Species Distribution Modeling website](https://rspatial.org/raster/sdm/1_sdm_introduction.html) for more background on SDM with R.
 
-For this exercise we'll use the blue oak (*Quercus douglasii*) tree. Blue oak trees are native and and endemic to California. They occur with a narrow range along the valleys and slopes of the mountain ranges that surround the Central Valley in California.
+SDMs are used to make inferences about the distribution of suitable habitat for a species of interest. There are many SDM approaches out there all with their own pros and cons. Check out this [table comparing different SDM techniches](https://www.seascapemodels.org/SDM-fish-course-notes/2021-09-20-SDM-fish-course.html#comparison-of-some-different-sdm-options). While there are many limitations of SDMs, their ability to gain ecological insight and predict species distribution across a landscape is valuable.
 
 ![*Quercus douglasii*; Blue Oak. [2018 Gary McDonald](https://calphotos.berkeley.edu/cgi/img_query?enlarge=0000+0000+1218+0143)](images/blue_oak.jpeg)
 
-The steps we'll follow to for out SDM are as follows:
+For this exercise we'll use the blue oak (*Quercus douglasii*) tree. Blue oaks are drought and flood tolerant trees endemic to California ([CNPS, 2022](https://vegetation.cnps.org/alliance/80)). They occur with a narrow range along the valleys and slopes of the mountain ranges that surround the Central Valley in California ([Calflora, 2022](https://www.calflora.org/app/taxon?crn=6990)).
 
--   Collect species occurrence data
--   Gather cliamte raster data
--   Crop climate data to California
--   Run MaxEnt Model
--   Calibrate model and re-run MaxEnt
+The steps of this exercise I'll walk through include; acquiring species occurrence data, gathering underlying climate data, making MaxEnt predictions, and model calibration. The libraries we'll use to the specific steps include:
+
+1.  `spocc` to collect species occurrence data
+2.  `sdmpredictors` to gather climate raster data
+3.  `dismo` to run and evalutate MaxEnt Model
+4.  `usdm` to calibrate our model 5. `rJava` Java GUI
 
 ## Installing Packages
 
 ```{r, library setup}
-
 library(spocc) # extract species occurrence data
 library(sdmpredictors) # get environmental raster data
-library(rJava)
 library(usdm) # uncertainty analysis for species distribution models: vifcor()
 library(dismo) # species distribution modeling: maxent(), predict(), evaluate()
-
+library(rJava)
 
 library(leaflet) # interactive mapping
 library(leafem) # leaflet html plugins
@@ -59,9 +59,8 @@ library(raster) # raster data manipulation
 library(sf) # spatial vector data manipulation
 library(USAboundaries) # grab state boundaries
 
-
-
-library(tidyverse) # data wrangling & visualizations (will use: 'dplyr', 'purrr'. 'ggplot2', 'readr')
+library(tidyverse) # data wrangling & visualizations ('dplyr','purrr', 'readr')
+library(here) # file referencing in project-oriented workflows
 library(tidyr)
 library(DT) # interface to the JavaScript library 'DataTables'
 
@@ -69,12 +68,11 @@ library(DT) # interface to the JavaScript library 'DataTables'
 select <- dplyr::select 
 
 # set random seed for reproducibility
-set.seed(58)
+set.seed(56)
 
 # directory to store data
 dir_data <- here("2022-08-04-speciesdistmodeling/data")
 dir.create(dir_data, showWarnings = F, recursive = T)
-
 ```
 
 If you are having problems installing the `rJava` package like so:
@@ -95,7 +93,7 @@ Here are the steps I took to get `rJava` working:
 3.  Run `R CMD javareconf` in the terminal. This reconfigures JAVA_HOME directories.
 4.  Re-install `rJava` in Rstudio and voila.
 
-## Exploring Species Data
+## Collecting Species Occurrence Data
 
 We'll set up our file structure here.
 
@@ -153,9 +151,9 @@ obs <- sf::read_sf(obs_geo)
 mapview::mapview(obs, map.types = "OpenTopoMap")
 ```
 
-## Selecting Environmental Data
+## Gathering Climate Data
 
-We'll now get the underlying climate data for our SDM.
+### Select Datasets
 
 ```{r, view climate data}
 dir_env <- here(dir_data, "env")
@@ -172,7 +170,7 @@ env_datasets |>
   DT::datatable()
 ```
 
-We'll use the two terrestrial datasets, "WorldClim" and ENVIREM".
+We'll use the two terrestrial datasets, "WorldClim" and ENVIREM". Let's take a look at those.
 
 ```{r, get climate data}
 # choose datasets for a vector
@@ -180,6 +178,7 @@ env_datasets_vec <- c("WorldClim", "ENVIREM")
 
 # get layers
 env_layers <- sdmpredictors::list_layers(env_datasets_vec)
+
 DT::datatable(env_layers, options = list(
   pageLength = 5, lengthMenu = c(5, 10, 15, 20)
 ))
@@ -197,6 +196,10 @@ There are 86 layers to choose from. Not all of them are needed so let's select a
 | ER_tri     | Terrain roughness index | Terrain roughness index                   |
 | ER_topoWet | Topographic wetness     | SAGA-GIS topographic wetness index        |
 
+### Download Data
+
+With our datasets selected, let's download them and create our raster stack.
+
 ```{r, climate data selection}
 # choose layers after some inspection and perhaps consulting literature
 env_layers_vec <- c("WC_alt", "WC_bio1", "WC_bio2", "WC_bio6", 
@@ -210,10 +213,14 @@ env_stack <- load_layers(env_layers_vec)
 plot(env_stack, nc=2)
 ```
 
-These raster layers are currently global. Let's crop the environmental rasters to a reasonable study area. There are two good options to clip our rasters:
+### Crop Raster Stack
+
+These raster layers are currently global. Let's crop the rasters to a reasonable study area. There are two primary options:
 
 1.  create a convex hull around our species observations using the `sf` package (`sf::st_convex_hull(st_union())`)
-2.  use the boundary of California. We'll use this second option grabbing boundaries from the `USAboundaries` package
+2.  use the boundary of California
+
+We'll use this second option grabbing boundaries with the `USAboundaries` package.
 
 ```{r, cropping environmental data}
 # two spatial files we'll generate
@@ -254,7 +261,39 @@ env_stack <- stack(env_stack_grd)
 plot(env_stack, nc=2)
 ```
 
+## Generate Pseudo-Absence Points
+
+While pseudo-absence points aren't needed to run the MaxEnt model, they are useful if you want to evaluate model performance. Let's generate these points now and use them a couple steps from now.
+
+```{r, pseduo-absence points}
+absence_geo <- here(dir_data, "absence.geojson")
+
+if (!file.exists(absence_geo) | redo){
+  # get raster count of observations
+  r_obs <- rasterize(
+    sf::as_Spatial(obs), env_stack[[1]], field=1, fun='count')
+  
+  # create mask for 
+  r_mask <- mask(env_stack[[1]] > -Inf, r_obs, inverse=T)
+  
+  # generate random points inside mask
+  absence <- dismo::randomPoints(r_mask, nrow(obs)) %>% 
+    as_tibble() %>% 
+    st_as_sf(coords = c("x", "y"), crs = 4326)
+  
+  write_sf(absence, absence_geo, delete_dsn=T)
+}
+
+absence <- read_sf(absence_geo)
+
+# show map of presence, ie obs, and absence
+mapview(obs, col.regions = "green") + 
+  mapview(absence, col.regions = "gray")
+```
+
 ## Extract Raster values from Observations
+
+We prepare the data for MaxEnt modeling by extracting the raster values from our raster stack using the presence-only observation points. We start by creating a simple dataframe and then use the `raster::extract()` function to extract from our raster stack.
 
 ```{r, extract_env_points}
 pts_geo     <- here(dir_data, "pts.geojson")
@@ -263,11 +302,14 @@ pts_env_csv <- here(dir_data, "pts_env.csv")
 if(!file.exists(pts_env_csv) | redo){
   # create simple dataframe
   pts <- rbind(
-    obs |> 
+    obs |>
       mutate(present = 1) |> 
-      select(present, key)) |> 
+      select(present, key),
+    absence |> 
+      mutate(present = 0,
+             key = NA)) |> 
     mutate(ID = 1:n()) |> 
-      relocate(ID)
+    relocate(ID)
   write_sf(pts, pts_geo, delete_dsn=T)
   
   # extract raster values for points
@@ -281,7 +323,7 @@ if(!file.exists(pts_env_csv) | redo){
     relocate(present, .after = ID) |> 
     # extract lon, lat as single columns
     mutate(
-      #present = factor(present),
+      present = factor(present),
       lon = st_coordinates(geometry)[,1],
       lat = st_coordinates(geometry)[,2]) |> 
     select(-geometry)
@@ -294,13 +336,18 @@ pts_env |>
   DT::datatable()
 ```
 
-This table above is the \*\*data\* that feeds into our SDM (y \~ X), where: *y* is the present column with values of 1 (present) and *X* is all other columns: WC_alt, WC_bio1, WC_bio2, WC_bio6, WC_bio12, ER_tri, ER_topoWet, lon, lat
+The table above (where *present=1*) is the input for our MaxEnt model. This table feeds into our SDM (y \~ X), where: *y* is the present column with values of 1 (present) and *X* is all other columns: WC_alt, WC_bio1, WC_bio2, WC_bio6, WC_bio12, ER_tri, ER_topoWet, lon, lat
 
-## MaxEnt (Maximum Entropy) Model
+## Running a MaxEnt (Maximum Entropy) Model
 
-Maxent is probably the most commonly used species distribution model ([Elith 2011](https://onlinelibrary.wiley.com/doi/10.1111/j.1472-4642.2010.00725.x)) since it performs well with few input data points, only requires presence points (and samples background for comparison) and is easy to use with a Java graphical user interface (GUI).
+The MaxEnt approach is said to feel like a black box. That's primarily because it is difficult to compare outputs with other model-based approaches. With MaxEnt, the output provides an environmental suitability rather than a probability of occurrence. MaxEnt works by iteratively building multiple models using two primary input components:
 
-MaxEnt requires presence-only observation points.
+1.  **Entropy**: our presence points. A model is calibrated to find the distribution that is most spread out, or closest to a uniform distribution throughout the study region
+2. **Constraints**: the environmental variables (raster stack) that constrain the predicted distribution. These rules are based the environmental variables where the species was observed, present=1.
+
+MaxEnt first calculates multiple probability densities using the environmental inputs above. This describes the relative likelihood of all environmental variables in the model. Then, the distribution across each environmental layer is calculated. MaxEnt chooses the distribution that maximizes similarity between the environmental characteristics of the total available environments and those of the locations where the species is known to be present. 
+
+To run the model, it's quite simple. We'll use the `dismo::maxent()` function.
 
 ```{r}
 mdl_maxent_rds <- here(dir_data, "mdl_maxent.rds")
@@ -320,15 +367,47 @@ if (!file.exists(mdl_maxent_rds)){
 }
 mdl <- read_rds(mdl_maxent_rds)
 
+```
+
+## Model Evaluation
+
+There are a couple plots that help interpret and evaluate what's going on under the hood: term plots, variable contribution plots, and response curves. Let's take a look at all three.
+
+### Term Plots
+
+Before looking at our model output, we can look at how obviously differentiated the presence verses absence points for each predictor is. While MaxEnt doesn't use absence points, we can use them to evaluate our model nonetheless. A plot for a specific predictor and response is called a "term plot". Here we are looking for predictors where the presence (present=1) occupies a distinct "niche" from the background absence points (present=0). A more pronounced presence peak generally makes for a more confident model.
+
+```{r term plots}
+pts_env %>% 
+  select(-ID) %>% 
+  mutate(
+    present = factor(present)) %>% 
+  pivot_longer(-present) %>% 
+  ggplot() +
+  geom_density(aes(x = value, fill = present)) + 
+  scale_fill_manual(values = alpha(c("gray", "green"), 0.5)) +
+  scale_x_continuous(expand=c(0,0)) +
+  scale_y_continuous(expand=c(0,0)) +
+  theme_light() + 
+  facet_wrap(~name, scales = "free")
+```
+
+Some of the predictor variables, where presence=1, with a more pronounced peak include *lon, WC_alt, WC_bio1, WC_bio12, and WC_bio6*.
+
+### Variable Contribution Plot
+
+The *Variable Contribution plot* tells you the overall percentage each environmental predictor contribute to the model. We'll use the `raster::plot()` function for that.
+
+```{r}
 # plot variable contributions per predictor
 plot(mdl)
 ```
 
-In our *Variable Contribution* plot we are checking out the percentage our environmental predictors contribute in our model. We see here that the top three predictors *WC_bio12, WC_bio6, and WC_bio1* contribute approximately 90%.
+We see the top three predictors *WC_bio12, WC_bio6, and WC_bio1* contribute approximately 90%.
 
-## Response Curves
+### Response Curves
 
-Response curves show how each environmental variable affects the MaxEnt prediction and how that prediction changes as each variable is varied. The default in the `dismo::response` package is vary one variable while setting all other environmental variables to their mean. In other words, the curves show the marginal effect of changing exactly one variable.
+Response curves show how much each environmental variable affects the MaxEnt prediction and how that prediction changes as each variable is varied. The default in the `dismo::response` package is to vary one variable while setting all other environmental variables to their mean. In other words, the curves show the marginal effect of changing exactly one variable, holding all else constant.
 
 ```{r}
 # plot response curves
@@ -350,11 +429,11 @@ plot(wrld_simpl, add=TRUE, border='dark grey')
 
 ## Model Calibration
 
-While these raw results are a good start, it's important to calibrate your model. It is critical to check for multicollinearity between independent variables in your model. When you have multiple independent variables (in our case, our *X* values) that have high intercorrelation, this can lead to skewed or misleading results. This essentially widens your confidence intervals to produce less reliable results.
+While these raw results are a good start, it's important to calibrate a model. It is critical to check for multicollinearity between independent variables in your model. When you have multiple independent variables (in our case, our *X* values) that have high intercorrelation, this can lead to skewed or misleading results. This essentially widens your confidence intervals to produce less reliable results.
 
 We first use a *pairs* plot to identify pairwise correlations between variables to identify pairs or groups of variables that are highly correlated. You can see below we have some strongly correlated variables. For our model, we'll set our pairwise correlation threshold at 0.7.
 
-```{r, pairs plots}
+```{r pairs plots}
 # show pairs plot before multicollinearity reduction
 raster::pairs(env_stack)
 ```
@@ -367,7 +446,7 @@ vif(env_stack) |>
   DT::datatable()
 ```
 
-We see that *WC_alt, WC_bio1, and WC_bio6* all have VIF greater than 10. Let's remove those from our raster stack.
+We see that *WC_alt, WC_bio1, and WC_bio6* all have VIF greater than 10. Let's remove those from our raster stack. We'll use `vifcor()` to to exclude those variables using a threshold correlation of 0.7.
 
 ```{r, remove collinearity}
 # stepwise reduce predictors, based on a max correlation of 0.7 (max 1)
@@ -381,7 +460,7 @@ env_stack_v <- usdm::exclude(env_stack, v)
 pairs(env_stack_v)
 ```
 
-Let's re-compute our
+Let's re-compute our model.
 
 ```{r}
 mdl_maxv_rds  <- here(dir_data, "mdl_maxent_vif.rds")
@@ -393,9 +472,10 @@ if (!file.exists(mdl_maxv_rds)){
 }
 mdl_maxv <- read_rds(mdl_maxv_rds)
 
-# plot variable contributions per predictor
-plot(mdl_maxv)
+raster::plot(mdl_maxv)
 ```
+
+With our previous variable contribution plot the top two variables our top *WC_bio12, WC_bio6, and WC_bio1* approximately 90%.
 
 ```{r}
 # predict
@@ -440,14 +520,10 @@ map <- leaflet() |>
   addMeasure() |> 
   addHomeButton(extent(obs), "observations")
 
-
-
 map
-
-
 ```
 
-```{r}
+```{r eval=FALSE}
 mapview(obs, map.types = "OpenTopoMap", alpha = 0.1) +
   mapview(y_maxv, col.regons = pal(100))
 ```
